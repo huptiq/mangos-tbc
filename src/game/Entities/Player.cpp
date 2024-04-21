@@ -661,6 +661,7 @@ Player::Player(WorldSession* session): Unit(), m_taxiTracker(*this), m_mover(thi
 
     m_lastDbGuid = 0;
     m_lastGameObject = false;
+xp_modifier = 1.0f;
 }
 
 Player::~Player()
@@ -2723,6 +2724,7 @@ void Player::SendLogXPGain(uint32 GivenXP, Unit* victim, uint32 RestXP, bool rec
 
 void Player::GiveXP(uint32 xp, Creature* victim, float groupRate)
 {
+xp *= xp_modifier;
     if (xp < 1)
         return;
 
@@ -15545,6 +15547,17 @@ bool Player::LoadFromDB(ObjectGuid guid, SqlQueryHolder* holder)
     SetFallInformation(0, GetPositionZ());
 
     _LoadSpellCooldowns(holder->GetResult(PLAYER_LOGIN_QUERY_LOADSPELLCOOLDOWNS));
+
+    std::unique_ptr<QueryResult> result = CharacterDatabase.PQuery("SELECT modifier FROM custom_xp WHERE player_uid = %u", GetGUIDLow());
+    if (result)
+    {
+        Field *fields = result->Fetch();
+        xp_modifier = fields[0].GetFloat();
+    }
+    else
+    {
+        xp_modifier = 1.0f;
+    }
 
     // Spell code allow apply any auras to dead character in load time in aura/spell/item loading
     // Do now before stats re-calculation cleanup for ghost state unexpected auras
