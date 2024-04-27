@@ -43,31 +43,31 @@ bool GossipSelect_teleporter(Player *player, Creature *creature, uint32 sender, 
         {
         case 2: // stormwind
             player->ModifyMoney(-tp_cost);
-            player->TeleportTo(0, 9003.46f, 870.031f, 29.6206f, 5.28f);
+            player->TeleportTo(0, -5994.772461f, 857.292542f, 29.620701f, 2.241570f);
             break;
         case 3: // ironforge
             player->ModifyMoney(-tp_cost);
-            player->TeleportTo(0, -4613.62f, -915.38f, 501.062f, 3.88f);
+            player->TeleportTo(0, -4613.397461f, -915.249634f, 501.062744f, 3.835466f);
             break;
         case 4: // darnassus
             player->ModifyMoney(-tp_cost);
-            player->TeleportTo(1, 9664.14f, 2526.36f, 1334.27f, 1.84454f);
+            player->TeleportTo(1, 9657.625977f, 2514.115967f, 1331.649780f, 1.163907f);
             break;
         case 5: // orgrimmar
             player->ModifyMoney(-tp_cost);
-            player->TeleportTo(1, 1469.85f, -4221.52f, 58.9939f, 5.98f);
+            player->TeleportTo(1, 1470.439575f, -4220.841797f, 58.993835f, 6.175170f);
             break;
         case 6: // thunder bluff
             player->ModifyMoney(-tp_cost);
-            player->TeleportTo(1, -964.98f, 283.433f, 111.187f, 3.02f);
+            player->TeleportTo(1, -968.679810f, 284.176300f, 110.907990f, 2.575390f);
             break;
         case 7: // undercity
             player->ModifyMoney(-tp_cost);
-            player->TeleportTo(0, 1773.47f, 61.121f, -46.3207f, 0.54f);
+            player->TeleportTo(0, 1770.977539f, 63.246574f, -46.321075f, 2.343006f);
             break;
-        case 8: // shattrath WIP TODO
+        case 8: // shattrath
             player->ModifyMoney(-tp_cost);
-            player->TeleportTo(0, 1773.47f, 61.121f, -46.3207f, 0.54f); // fix coords for shatt
+            player->TeleportTo(530, -1810.907349f, 5309.564453f, -12.428000f, 1.863699f);
             break;
         }
     }
