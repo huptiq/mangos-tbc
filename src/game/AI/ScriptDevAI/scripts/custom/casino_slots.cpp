@@ -126,7 +126,7 @@ bool GossipSelect_slots(Player *player, Creature *creature, uint32 sender, uint3
         break;
     }
 
-    if (action < 5)
+    if (action < 6)
     {
         player->ModifyMoney(-bet_amount_slots);
         UpdateCasinoStats(bet_amount_slots);
@@ -243,6 +243,14 @@ bool GossipSelect_slots(Player *player, Creature *creature, uint32 sender, uint3
             if (bet_amount_slots == 20000)
             {
                 player->ADD_GOSSIP_ITEM(5, " Spin again", GOSSIP_SENDER_MAIN, 3);
+            }
+            if (bet_amount_slots == 500000)
+            {
+                player->ADD_GOSSIP_ITEM(5, " Spin again", GOSSIP_SENDER_MAIN, 4);
+            }
+            if (bet_amount_slots == 1000000)
+            {
+                player->ADD_GOSSIP_ITEM(5, " Spin again", GOSSIP_SENDER_MAIN, 5);
             }
             player->ADD_GOSSIP_ITEM(5, " Change bet", GOSSIP_SENDER_MAIN, 6);
         }
