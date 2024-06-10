@@ -397,6 +397,16 @@ bool GossipHello_custom_xp(Player *player, Creature *creature)
     return true;
 }
 
+void LearnRiding(Player *player)
+{
+    int classValue = player->getClass();
+    if (classValue != 2 && classValue != 9)
+    {
+        player->learnSpell(762, false);
+        player->SetSkill(762, 75, 75);
+    }
+}
+
 bool GossipSelect_custom_xp(Player *player, Creature *creature, uint32 sender, uint32 action)
 {
     class Item
@@ -465,6 +475,7 @@ bool GossipSelect_custom_xp(Player *player, Creature *creature, uint32 sender, u
         LearnWeaponSkills(player);
         LearnArmorSkills(player);
         GrantMount(player);
+        LearnRiding(player);
         player->SetSkill(95, 300, player->GetSkillMax(95), 0);
         for (uint32 itemEntry : Level1StartingGear)
             player->DestroyItemCount(itemEntry, 200, true, false);
@@ -491,6 +502,8 @@ bool GossipSelect_custom_xp(Player *player, Creature *creature, uint32 sender, u
             player->EquipNewItem(20, 16057, 1); // Bag2
             player->EquipNewItem(21, 16057, 1); // Bag3
             player->EquipNewItem(22, 16057, 1); // Bag4
+            player->StoreNewItemInInventorySlot(15806, 1);
+            player->StoreNewItemInInventorySlot(12602, 1);
             player->SaveInventoryAndGoldToDB();
         }
         else if (player->getClass() == 2) // Paladin

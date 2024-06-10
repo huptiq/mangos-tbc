@@ -96,3 +96,17 @@ cmake_install.cmake
 # Module files
 #
 src/modules/
+etc/ahbot.conf.dist
+etc/aiplayerbot.conf.dist
+etc/anticheat.conf.dist
+etc/dualspec.conf.dist
+etc/mangosd.conf.dist
+etc/realmd.conf.dist
+etc/transmog.conf.dist
+etc/ahbot.conf.dist
+etc/aiplayerbot.conf.dist
+etc/anticheat.conf.dist
+etc/dualspec.conf.dist
+etc/mangosd.conf.dist
+etc/realmd.conf.dist
+etc/transmog.conf.dist
