@@ -15,6 +15,7 @@ extern void AddSC_casino_roll();
 extern void AddSC_teleporter();
 extern void AddSC_slots();
 extern void AddSC_elevator_operator();
+extern void AddSC_milestone_npc();
 
 // examples
 extern void AddSC_example_creature();
@@ -380,13 +381,14 @@ void AddScripts()
     AddSC_battleground();
 
     // custom
-AddSC_custom_xp();
+    AddSC_custom_xp();
     AddSC_npc_enchanter();
     AddSC_npc_enchanter_tbc();
     AddSC_casino_roll();
     AddSC_teleporter();
     AddSC_slots();
     AddSC_elevator_operator();
+    AddSC_milestone_npc();
 
     // examples
     AddSC_example_creature();
